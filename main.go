@@ -7,7 +7,7 @@ import (
 
 func main() {
 	john := domain.NewUser("John Doe")
-	if err := domain.CreateUserCommand(john); err != nil {
+	if err := domain.RegisterUserCommand(john); err != nil {
 		panic(err)
 	}
 	fmt.Printf("User created with id: %s\n", john.ID)
@@ -19,7 +19,7 @@ func main() {
 	fmt.Printf("User found with id: %s\n", john.ID)
 
 	merry := domain.NewUser("Merry Doe")
-	if err = domain.CreateUserCommand(merry); err != nil {
+	if err = domain.RegisterUserCommand(merry); err != nil {
 		panic(err)
 	}
 	fmt.Printf("User created with id: %s\n", merry.ID)

@@ -13,18 +13,18 @@ type User struct {
 }
 
 type ResourceID struct {
-	ID string `json:"id,omitempty"`
+	Value string
 }
 
 func (r ResourceID) String() string {
-	return r.ID
+	return r.Value
 }
 
 func NewUser(name string) *User {
-	return &User{ID: ResourceID{ID: uuid.NewString()}, Name: name}
+	return &User{ID: ResourceID{Value: uuid.NewString()}, Name: name}
 }
 
-func CreateUserCommand(u *User) error {
+func RegisterUserCommand(u *User) error {
 	if u.ID.String() == "" {
 		return errors.New("user id is empty")
 	}
